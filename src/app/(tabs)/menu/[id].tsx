@@ -3,12 +3,18 @@ import React from 'react';
 import { useLocalSearchParams, Stack } from 'expo-router';
 import products from '@/assets/data/products';
 import { useState } from 'react';
+import Button from '@/src/components/Button';
 
 const sizes = ['S', 'M', 'L', 'XL'];
+
+
 
 const ProductDetailsScreen = () => {
   //const [selectedSize, setSelectedSize] = useState('M');
   const [selectedSize, setSelectedSize] = useState('M');
+  const addToCart = () => {
+    console.warn('adding to cart, size : ', selectedSize)
+  }
 
   const defaultPizzaImage = 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/food/peperoni.png';
 
@@ -52,6 +58,8 @@ const ProductDetailsScreen = () => {
       
 
       <Text style={Styles.price}>${product.price}</Text>
+
+      <Button onPress={ addToCart } text='Add to Cart' />
     </View>
   );
 };
@@ -68,7 +76,8 @@ const Styles = StyleSheet.create({
   },
   price: {
     fontSize: 18,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    marginTop: 'auto',
   },
   sizes: {
     flexDirection: 'row',
