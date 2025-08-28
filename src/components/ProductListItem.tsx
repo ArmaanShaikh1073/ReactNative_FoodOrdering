@@ -28,6 +28,8 @@ const styles = StyleSheet.create({
     color: '#000',
     padding: 10,
     borderRadius: 20,
+    flex: 1,
+    maxWidth: '50%',
   },
   title: { 
     fontSize: 18, 
